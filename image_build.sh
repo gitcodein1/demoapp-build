@@ -3,6 +3,7 @@
 # command returns 0 execute if block, otherwise execute else block
 
 source registries
+source artifact_info
 
 if docker inspect $base_image &>/dev/null
 then
@@ -10,7 +11,7 @@ then
         echo "No need to Pull..."
         echo ">>Build with the Existing Image<<"
         echo "---------------------------------"
-        docker build --build-arg image_name=$base_image -t demoapp .
+        docker build --build-arg image_name=$base_image -t $snapshot_repo/demoapp:$version .
         echo
         echo "Build Finished..."
 else
@@ -28,7 +29,7 @@ else
         echo
         echo ">>Build Starts<<"
         echo "----------------"
-        docker build --build-arg image_name=$base_image -t demoapp .
+        docker build --build-arg image_name=$base_image -t $snapshot_repo/demoapp:$version .
         echo
         echo "Build Finished..."
         echo
