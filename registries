@@ -1,2 +1,3 @@
-proxy_repo=""
-base_image=""
+proxy_repo="f033-183-87-250-107.ngrok-free.app"
+base_image="tomcat:alpine"
+snapshot_repo="b36a-183-87-250-107.ngrok-free.app"
