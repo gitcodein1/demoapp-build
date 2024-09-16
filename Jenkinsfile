@@ -11,5 +11,10 @@ pipeline {
                 sh "bash artifact_pull.sh"
             }
         }
+        stage("Dcoker Image Build") {
+            steps {
+                sh "bash image_build.sh"
+            }
+        }
     }
 }
