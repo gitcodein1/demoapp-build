@@ -35,6 +35,16 @@ else
         echo
 fi
 
+echo ">>Push Image<<"
+echo "--------------"
+echo $secret_PSW | docker login -u $secret_USR --password-stdin $proxy_repo
+docker pull $snapshot_repo/demoapp:$version
+echo
+echo "Image Pushed..."
+echo
+docker logout
+echo
+
 echo ">>Clean Up<<"
 echo "------------"
 docker rmi $proxy_repo/$base_image $base_image
