@@ -37,7 +37,7 @@ fi
 
 echo ">>Push Image<<"
 echo "--------------"
-echo $secret_PSW | docker login -u $secret_USR --password-stdin $proxy_repo
+echo $secret_PSW | docker login -u $secret_USR --password-stdin $snapshot_repo
 docker pull $snapshot_repo/demoapp:$version
 echo
 echo "Image Pushed..."
