@@ -13,8 +13,13 @@ pipeline {
         }
         stage("Dcoker Image Build") {
             steps {
-                sh "bash image_build.sh"
+                sh "bash image_build_push.sh"
             }
+        }
+    }
+    post {
+        always {
+            cleanWs ()
         }
     }
 }
