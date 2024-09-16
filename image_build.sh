@@ -2,12 +2,13 @@
 
 # condition returns 0 execute if block, otherwise execute else block
 
-proxy_repo="b156-183-87-250-107.ngrok-free.app"
+proxy_repo="e5e6-183-87-250-107.ngrok-free.app"
 
 base_image="tomcat:alpine"
 
 if docker inspect $image_name &>/dev/null
 then
+        echo "$base_image exists"
         docker build -t demoapp .
 else
         echo $secret_PSW | docker login -u $secret_USR --password-stdin $proxy_repo
